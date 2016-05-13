@@ -32,7 +32,7 @@ public class Bismillah extends ActionBarActivity {
         ab.setDisplayUseLogoEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
         OnButtonClick1();
-        OnAlertButtonClick();
+        //OnAlertButtonClick();
        // OnNotifyButton();
 
     }
@@ -50,34 +50,7 @@ public class Bismillah extends ActionBarActivity {
                 }
         );
     }
-        public void OnAlertButtonClick()
-        {
-            button_sbm7=(Button)findViewById(R.id.button7);
-            button_sbm7.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            AlertDialog.Builder a_builder =new AlertDialog.Builder(Bismillah.this);
-                            a_builder.setMessage("Do you want to close this App?").setCancelable(false).setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-
-                            }).setNegativeButton("No",new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
-                            AlertDialog alert = a_builder.create();
-                            alert.setTitle("Alhamdulillah");
-                            alert.show();
-                        }
-                    }
-            );
-
-           }
+        
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -130,6 +103,31 @@ public class Bismillah extends ActionBarActivity {
                 alert.show();
 
             }
+            case R.id.exit_id:
+                {
+                    AlertDialog.Builder a_builder =new AlertDialog.Builder(Bismillah.this);
+                            a_builder.setMessage("Do you want to close this App?").setCancelable(false).setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+
+                            }).setNegativeButton("No",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                            AlertDialog alert = a_builder.create();
+                            alert.setTitle("Alhamdulillah");
+                            alert.show();
+                        }
+                }
+                case R.id.similar app_id:
+                    {
+                        Intent intent=new Intent("contactmanager.al_quddusislamicapp.SimilarApp");
+                        startActivity(intent);
+                    }
             default:
                     return super.onOptionsItemSelected(item);
         }
